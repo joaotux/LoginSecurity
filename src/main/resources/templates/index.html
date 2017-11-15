@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<h2>Página inicial</h2>
+
+<a th:href="@{/perfil}">Perfil</a>
+
+<div sec:authorize="hasRole('ROLE_entrar')">
+	somente ADM pode estar vendo isso!
+</div>
+<div sec:authorize="hasRole('ROLE_perfil')">
+	Somente editor pode estar vendo isso!
+</div>
+
+<form th:action="@{/logout}" method="post">
+	<input type="submit" value="Sair" />
+</form>
+
+</html>
